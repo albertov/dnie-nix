@@ -6,13 +6,12 @@ let
     libassuan
     libgpgerror
   ];
-  installScript = stdenv.lib.writeScript "install-dnie" ''
-  '';
 in stdenv.mkDerivation rec {
   name = "libpkcs-dnie-${version}";
   version = "1.4.1";
   src = fetchurl {
-    url = "https://www.dnielectronico.es/descargas/distribuciones_linux/libpkcs11-dnie_1.4.1_amd64.deb";
+    url =
+    "https://www.dnielectronico.es/descargas/distribuciones_linux/libpkcs11-dnie_${version}_amd64.deb";
     sha256 = "e350b84689e6b042462224444c8e8c71ec7491cb9af2f2cc274ced566eecf4b7";
   };
   phases = [ "unpackPhase" "installPhase" "fixupPhase" ];
