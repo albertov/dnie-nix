@@ -8,8 +8,11 @@ let
   ];
 in stdenv.mkDerivation rec {
   name = "libpkcs-dnie-${version}";
-  version = "1.4.1";
-  src = ./libpkcs11-dnie_1.4.1_amd64.deb;
+  version = "1.6.6";
+  src = fetchurl {
+    url = "https://www.dnielectronico.es/descargas/distribuciones_linux/libpkcs11-dnie_${version}_amd64.deb";
+    sha256 = "1qi3rsazp5g0qihqmfy9r9bmxm6kgh9pg4g29qcq3cq65jigcajn";
+  };
   phases = [ "unpackPhase" "installPhase" "fixupPhase" ];
 
   buildInputs = [dpkg nssTools];
