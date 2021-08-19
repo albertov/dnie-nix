@@ -1,6 +1,6 @@
-{ stdenv, fetchurl, dpkg, pcsclite, libassuan, libgpgerror, nssTools }:
+{ stdenv, lib, fetchurl, dpkg, pcsclite, libassuan, libgpgerror, nssTools }:
 let
-  libPath = stdenv.lib.makeLibraryPath [
+  libPath = lib.makeLibraryPath [
     stdenv.cc.cc
     pcsclite
     libassuan
@@ -33,7 +33,7 @@ in stdenv.mkDerivation rec {
     done
   '';
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     description = "Libpkcs for DNI-e";
     license = licenses.unfree;
     platforms = [ "x86_64-linux" ];
